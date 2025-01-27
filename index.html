@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="quiz-container">
+      <div id="score-tracker">
+        <p>Score: <span id="score-display">0</span></p>
+      </div>
+      <div id="progress-indicator">
+        Question <span id="current-question">1</span> of
+        <span id="total-questions">5</span>
+      </div>
+      <p id="feedback"></p>
+      <div id="question-container">
+        <h2 id="question-text"></h2>
+        <div id="timer-display"></div>
+        <div id="answer-buttons" class="btn-grid">
+          <button class="btn">Answer 1</button>
+          <button class="btn">Answer 2</button>
+          <button class="btn">Answer 3</button>
+          <button class="btn">Answer 4</button>
+        </div>
+      </div>
+      <div id="results-container" class="hide">
+        <h2>Quiz Completed!</h2>
+        <p>Your final score: <span id="final-score"></span></p>
+      </div>
+      <div id="controls">
+        <button id="next-button" class="btn">Next Question</button>
+        <button id="restart-button" class="btn hide">Restart Quiz</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
