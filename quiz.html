@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="quiz-container">
+      <div id="score-tracker">
+        <p>Score: <span id="score-display">0</span></p>
+      </div>
+      <div id="progress-indicator">
+        Question <span id="current-question">1</span> of
+        <span id="total-questions">5</span>
+      </div>
+      <p id="feedback"></p>
+      <div id="question-container">
+        <h2 id="question-text"></h2>
+        <div id="timer-display"></div>
+        <div id="answer-buttons" class="btn-grid">
+          <button class="btn">Answer 1</button>
+          <button class="btn">Answer 2</button>
+          <button class="btn">Answer 3</button>
+          <button class="btn">Answer 4</button>
+        </div>
+      </div>
+      <div id="results-container" class="hide">
+        <h2>Quiz Completed!</h2>
+        <p>Your final score: <span id="final-score"></span></p>
+        <button class="btn" onclick="window.open('https://javascript-project-alpha-nine.vercel.app/', '_blank')">ดูโปรเจ็คอื่นๆ</button>
+      </div>
+      
+      <div id="controls">
+        <button id="next-button" class="btn">Next Question</button>
+        <button id="restart-button" class="btn hide">Restart Quiz</button>
+      </div>
+    </div>
+      <div class="donation-card">
+        <p>เลี้ยงกาแฟผู้พัฒนา (โดเนท)</p>
+        <img src="https://warathepj.github.io/js-ai-gallery/public/image/promptpay-20.png" alt="Donation QR Code" style="width: 200px; margin-top: 10px;">
+        <p>CorgiDev</p>
+        <img src="https://warathepj.github.io/js-ai-gallery/public/image/fri12.jpeg" alt="Donation QR Code" style="width: 200px; margin-top: 10px;">
+
+      </div>
+
+
+
+      <footer class="site-footer">
+        <p>&copy; CorgiDev <span id="currentYear"></span> | All treats reserved</p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+
+    
+  </body>
+</html>

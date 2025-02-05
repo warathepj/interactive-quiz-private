@@ -1,40 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz Game</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="quiz-container">
-      <div id="score-tracker">
-        <p>Score: <span id="score-display">0</span></p>
-      </div>
-      <div id="progress-indicator">
-        Question <span id="current-question">1</span> of
-        <span id="total-questions">5</span>
-      </div>
-      <p id="feedback"></p>
-      <div id="question-container">
-        <h2 id="question-text"></h2>
-        <div id="timer-display"></div>
-        <div id="answer-buttons" class="btn-grid">
-          <button class="btn">Answer 1</button>
-          <button class="btn">Answer 2</button>
-          <button class="btn">Answer 3</button>
-          <button class="btn">Answer 4</button>
-        </div>
-      </div>
-      <div id="results-container" class="hide">
-        <h2>Quiz Completed!</h2>
-        <p>Your final score: <span id="final-score"></span></p>
-      </div>
-      <div id="controls">
-        <button id="next-button" class="btn">Next Question</button>
-        <button id="restart-button" class="btn hide">Restart Quiz</button>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login</title>
+    <style>
+        /* Basic reset and global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f0f2f5;
+            padding: 20px;
+        }
+
+        /* Login form styling */
+        .login-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        /* Message styling */
+        .message {
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1 class="form-title">Secure Login</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" 
+                       id="password" 
+                       name="password" 
+                       placeholder="Enter your password"
+                       required
+                       minlength="8">
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+        <div id="message" class="message"></div>
     </div>
-    <script src="script.js"></script>
-  </body>
+
+    <script>
+        // Form submission handler
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form from submitting normally
+            
+            const password = document.getElementById('password').value;
+            const messageEl = document.getElementById('message');
+            messageEl.style.display = 'none'; // Hide previous messages
+
+            // Client-side validation
+            if (password.length < 8) {
+                showMessage('Password must be at least 8 characters', 'error');
+                return;
+            }
+
+            // Check password (demo purposes only - not secure for production)
+            if (password === 'SecurePass123') {
+                showMessage('Login successful! Redirecting...', 'success');
+                // Simulate server-side delay
+                setTimeout(() => {
+                    // In real implementation, redirect to secure area
+                    window.location.href = '/quiz.html'; 
+                }, 1500);
+            } else {
+                showMessage('Incorrect password. Please try again.', 'error');
+                // Clear password field for security
+                document.getElementById('password').value = '';
+            }
+        });
+
+        // Helper function to display messages
+        function showMessage(text, type) {
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = text;
+            messageEl.className = `message ${type}`;
+            messageEl.style.display = 'block';
+        }
+    </script>
+</body>
 </html>

@@ -12,6 +12,8 @@ const feedbackElement = document.getElementById('feedback');
 
 let shuffledQuestions, currentQuestionIndex, score;
 
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
 const questions = [
     {
         question: 'What is the capital of France?',
