@@ -36,7 +36,7 @@ To run the quiz game locally, follow these steps:
 2. Navigate to the project directory:
 
    ```bash
-   cd interactive-quiz
+   cd interactive-quiz-private
    ```
 
 3. Run Live Server (VSCode Extension)
